@@ -42,7 +42,7 @@ async function launchInstance(instanceId) {
 
   await driver.sleep(1000);
 
-  if (Math.random() < 0.15) {
+  if (Math.random() < 0.5) {
     driver.findElement(By.id('btn-camera-enable')).click();
     driver.findElement(By.id('btn-mic-enable')).click();
 
