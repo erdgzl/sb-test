@@ -13,6 +13,9 @@ optionsChrome.addArguments([
 '--use-file-for-fake-video-capture=./test.y4m',
 '--headless']); //
 
+optionsChrome.addArguments('--disable-dev-shm-usage')
+optionsChrome.addArguments('--no-sandbox')
+
 
 // optionsFirefox.setPreference("media.navigator.streams.fake", true);
 // optionsFirefox.setPreference("media.navigator.permission.disabled", true);
@@ -39,10 +42,12 @@ async function launchInstance(instanceId) {
 
   await driver.sleep(1000);
 
-  driver.findElement(By.id('btn-camera-enable')).click();
-  driver.findElement(By.id('btn-mic-enable')).click();
+  if (Math.random() < 0.08) {
+    driver.findElement(By.id('btn-camera-enable')).click();
+    driver.findElement(By.id('btn-mic-enable')).click();
 
-  await driver.sleep(4000);
+    await driver.sleep(4000);
+  }
 
   driver.findElement(By.id('btn-join')).click();
 
