@@ -46,7 +46,7 @@ async function launchInstance(instanceId) {
 
   driver.findElement(By.id('btn-join')).click();
 
-  await driver.sleep(600000);
+  await driver.sleep(30 * 60 * 1000); // 30 minutes
   driver.quit();
 }
 const count = process.env.WORKERS || 6;
