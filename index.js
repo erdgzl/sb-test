@@ -34,7 +34,7 @@ async function launchInstance(instanceId) {
   await driver.sleep(1000); 
 
   driver.findElement(By.id('name-override-name-input')).sendKeys(instanceId);
-  await driver.sleep(1000); 
+  await driver.sleep(500); 
   driver.findElement(By.id('btn-complete-name-override')).click();
 
   await driver.wait(until.elementLocated(By.id('btn-join'), 10000));
@@ -48,7 +48,7 @@ async function launchInstance(instanceId) {
     driver.findElement(By.id('btn-mic-enable')).click();
   }
 
-  await driver.sleep(4000);
+  await driver.sleep(2000);
 
   driver.findElement(By.id('btn-join')).click();
 
