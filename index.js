@@ -10,7 +10,7 @@ optionsChrome.addArguments([
 "--use-fake-ui-for-media-stream",
 "--allow-file-access",
 '--use-fake-device-for-media-stream',
-'--use-file-for-fake-video-capture=./test.y4m',
+'--use-file-for-fake-video-capture=./test-video640s.y4m',
 // '--headless'
 ]); //
 
