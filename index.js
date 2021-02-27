@@ -11,7 +11,7 @@ optionsChrome.addArguments([
 "--allow-file-access",
 '--use-fake-device-for-media-stream',
 '--use-file-for-fake-video-capture=./test-video640s.y4m',
-// '--headless'
+'--headless'
 ]); //
 
 optionsChrome.addArguments('--disable-dev-shm-usage')
