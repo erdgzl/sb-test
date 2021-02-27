@@ -11,7 +11,8 @@ optionsChrome.addArguments([
 "--allow-file-access",
 '--use-fake-device-for-media-stream',
 '--use-file-for-fake-video-capture=./test.y4m',
-'--headless']); //
+// '--headless'
+]); //
 
 optionsChrome.addArguments('--disable-dev-shm-usage')
 optionsChrome.addArguments('--no-sandbox')
@@ -22,7 +23,7 @@ optionsChrome.addArguments('--no-sandbox')
 
 async function launchInstance(instanceId) {
   const driver = await new Builder().forBrowser('chrome').setChromeOptions(optionsChrome).build();
-  await driver.get('https://sharedboard.io/r/105-345-440');
+  await driver.get('https://sharedboard.io/r/895-309-842');
 
   driver.switchTo().frame(driver.findElement(By.css("iframe[src='https://client.sharedboard.io/']")));
   
@@ -43,16 +44,18 @@ async function launchInstance(instanceId) {
   await driver.sleep(1000);
 
   driver.findElement(By.id('btn-camera-enable')).click();
-  driver.findElement(By.id('btn-mic-enable')).click();
+  if (Math.random() < 0.1) {
+    driver.findElement(By.id('btn-mic-enable')).click();
+  }
 
   await driver.sleep(4000);
 
   driver.findElement(By.id('btn-join')).click();
 
-  await driver.sleep(30 * 60 * 1000); // 30 minutes
+  await driver.sleep(30 * 60 * 1000); // n minutes
   driver.quit();
 }
-const count = process.env.WORKERS || 6;
+const count = process.env.WORKERS || 1;
 
 for (let i = 0; i < count; i++) {
   launchInstance('test' + i);
